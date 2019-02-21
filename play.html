@@ -25,6 +25,8 @@ body{
 			<button onclick="document.getElementById('displayNum').innerHTML = increment2()">+2</button>
 			<button onclick="document.getElementById('displayNum').innerHTML = increment5()">+5</button>
 			<button onclick="document.getElementById('displayNum').innerHTML = increment10()">+10</button>
+			<button onclick="document.getElementById('displayNum').innerHTML = increment15()">+15</button>
+			<button onclick="document.getElementById('displayNum').innerHTML = increment20()">+20</button>
 			<br/><br/><br/>
 			<div id ="displayNum">
 			</div>
@@ -110,6 +112,42 @@ body{
 				else
 				{
 					x.firstNum += 10;
+					message = "<h3><br>Incrementing!</h3>";
+				}
+
+				return x.firstNum + message;
+			}		
+			function increment15()
+			{
+				if(x.firstNum >= y || x.firstNum+15 > y)
+				{
+					x.firstNum += 15;
+					setTimeout(function() {
+						x.firstNum = 0;
+					}, delay);
+					message = "<h3><br>Exceeding maximum value " + y + " <br>Resetting to 0...</h3>";
+				}
+				else
+				{
+					x.firstNum += 15;
+					message = "<h3><br>Incrementing!</h3>";
+				}
+
+				return x.firstNum + message;
+			}		
+			function increment20()
+			{
+				if(x.firstNum >= y || x.firstNum+20 > y)
+				{
+					x.firstNum += 20;
+					setTimeout(function() {
+						x.firstNum = 0;
+					}, delay);
+					message = "<h3><br>Exceeding maximum value " + y + " <br>Resetting to 0...</h3>";
+				}
+				else
+				{
+					x.firstNum += 20;
 					message = "<h3><br>Incrementing!</h3>";
 				}
 
