@@ -25,6 +25,7 @@ a:hover{
 			<div class = "container-left">
 				<p id="placeholder"></p>
 				<button id="button">Roll Dice</button>
+				<button id="butautoclick" value = "off" onclick = "autoclick()">Auto-Click</button>
 			</div>
 		</th><th>
 			<div class = "container-right">
@@ -73,6 +74,9 @@ a:hover{
 		</div>
 		
 		<script>
+			var butautoclick = document.getElementById('butautoclick');
+			var status = butautoclick.value;
+			var button = document.getElementById('button');
 			var dice1 = document.getElementById('dice1');
 			var dice2 = document.getElementById('dice2');
 			var dice3 = document.getElementById('dice3');
@@ -146,13 +150,33 @@ a:hover{
 			  placeholder.innerHTML = number;
 			}
 			
-			var button = document.getElementById('button');
-
+			
+			butautoclick.onclick = autoclick;
+			
+			function autoclick() {		
+			  if(status == "off"){
+				  setInterval(function(){
+					button.click();
+				  },40);
+				  status = "on";
+				  butautoclick.innerHTML = "ON";
+				  
+			  }
+			  else{
+				  setInterval(function(){
+					button.click();
+				  },20000);
+				  status = "off";
+				  butautoclick.innerHTML = "OFF";
+			  }
+			  return status;
+			}
+			
 			button.onclick = function() {
 			  var result = dice.roll();
 			  printNumber(result);
 			};
-
+			
 
 		</script>
 	</body>
